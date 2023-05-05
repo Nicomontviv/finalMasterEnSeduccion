@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Sniglet&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="filtro-paises.css" type="text/css">
+    <link rel="stylesheet" href="normalize.css" type="text/css">
+	<title>Filtro paises</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="body">
+    <img src="p1blackensenWide.png" alt="" class="img1-blakensenWide pdf">
+    <img src="p1blackensen.png" alt="" class="img1-blakensen pdf">
+    <h1 class="h1">Elige desde que ciudad realizarías el curso: </h1>
+	<form class="form">
+		<label class="label" for="city">Ciudad:</label>
+		<select id="city" name="city">
+			<option value="">Selecciona una ciudad</option>
+			<option value="buenosaires">Buenos Aires</option>
+			<option value="montevideo">Montevideo</option>
+			<option value="otrauruguay">Otra ciudad de Uruguay</option>
+			<option value="otraargentina">Otra ciudad de Argentina</option>
+			<option value="otrolugar">Otra ciudad del mundo</option>
+		</select>
+
+		<button class="boton"  disabled><a class="boton-enlace" href="" id="continuar">Continuar</a> </button>
+	</form>
+
+	<script>
+		$(document).ready(function() {
+			// Deshabilita el botón hasta que se seleccione una ciudad
+			$('#continuar').prop('disabled', true);
+
+			// Actualiza el atributo href del botón en función de la ciudad seleccionada
+			$('#city').change(function() {
+				var selectedCity = $(this).val();
+				if (selectedCity === '') {
+					$('#continuar').prop('disabled', true);
+				} else {
+					$('#continuar').prop('disabled', false);
+					var href = selectedCity + '.html';
+					$('#continuar').attr('href', href);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
