@@ -49,7 +49,7 @@ html {
   }
   .boton-enlace{
     text-decoration: none;
-    color: #fff;
+    color: #000;
   }
 
   @media screen and (min-width: 800px){
